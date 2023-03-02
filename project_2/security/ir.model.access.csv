@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_assign_assign,assign_assign,model_assign_assign,,1,1,1,1
+access_dpd_dpd,dpd_dpd,model_dpd_dpd,,1,1,1,1
+access_status_status,status_status,model_status_status,,1,1,1,1
+access_area_area,area_area,model_area_area,,1,1,1,1
+access_product_description,product_description,model_product_description,,1,1,1,1
+access_bill_history,bill_history,model_bill_history,,1,1,1,1

@@ -1,0 +1,120 @@
+<odoo>
+  <data>
+        <!-- Assignment -->
+
+        <record id="assign_tree" model="ir.ui.view">
+            <field name="name">assign.tree</field>
+            <field name="model">assign.assign</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="customer"/>
+                    <field name="status"/>
+                    <field name="assign_to_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="assign_form" model="ir.ui.view">
+            <field name="name">assign.form</field>
+            <field name="model">assign.assign</field>
+            <field name="arch" type="xml">
+                <form string="Assignment">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="perusahaan_id" invisible="True"/>
+                            <field name="logo_perusahaan" widget="image" class="oe_avatar"/>
+                        </div>
+                        <field name="logo_partner" widget="image" class="oe_avatar" readonly="True"/>
+                    	<div class="oe_title">
+                            <span class="o_form_label" >CUST CODE / NO</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="area_id"/>
+                            <field name="customer"/>
+                        </group>
+                        <group>
+                            <group string="PERSONAL INFORMATION">
+                                <field name="email"/>
+                                <field name="no_hp"/>
+                                <field name="nik"/>
+                                <field name="birthday"/>
+                                <field name="age"/>
+                                <field name="sex"/>
+                                <label for="street" string="HOME ADDRESS"/>
+                                <div class="o_address_format">
+                                    <field name="alamat" class="o_address_street"/>
+                                    <field name="zip_code" class="o_address_zip" placeholder="ZIP CODE"/>
+                                    <field name="city" style="margin-left:10px;" class="o_address_city" placeholder="CITY"/>
+                                </div>
+                                <field name="home_number"/>
+                                <field name="house_owner"/>
+
+                                <label for="street" string="OFFICE ADDRESS"/>
+                                <div class="o_address_format">
+                                    <field name="office" class="o_address_street"/>
+                                    <field name="office_zip_code" class="o_address_zip" placeholder="ZIP CODE"/>
+                                    <field name="office_city" style="margin-left:10px;" class="o_address_city" placeholder="CITY"/>
+                                </div>
+                                <field name="office_number"/>
+                                <field name="reff_number"/>
+                            </group>
+
+                            <group string="BANK">
+                                <field name="BCA"/>
+                                <field name="MANDIRI"/>
+                                <field name="PERMATA"/>
+                            </group>
+                            
+                        </group>
+                        <group>
+                            <field name="assign_to_id"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="PRODUCT DESCRIPTION">
+                                <!-- <group> -->
+                                    <field name="product_ids" >
+                                        <tree string="PRODUCT DESCRIPTION" editable="bottom">
+                                            <field name="name"/>
+                                            <field name="agreement"/>
+                                            <field name="open_date"/>
+                                            <field name="wo_date"/>
+                                            <field name="dpd_id"/>
+                                            <field name="last_pay"/>
+                                            <field name="last_payment_ammount"/>
+                                            <field name="total_tagihan"/>
+                                            <field name="minpay_delq"/>
+                                            <!-- <field name="status_id"/> -->
+                                            <field name="angs_ke"/>
+                                            <field name="stay_delq"/>
+                                            <field name="lunas_disc"/>
+                                        </tree>
+                                    </field>
+                                <!-- </group>   -->
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_assign" model="ir.actions.act_window">
+            <field name="name">Assign</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">assign.assign</field>
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+
+        <menuitem id="menu_monitoring" name="Monitoring" sequence="200"/>
+            <menuitem id="menu_assign" name="Assign" parent="menu_monitoring" action="action_assign" sequence="10"/>
+            
+
+    </data>
+</odoo>

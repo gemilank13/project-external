@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+        <record id="action_partner" model="ir.actions.act_window">
+            <field name="name">Partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_user_em" model="ir.actions.act_window">
+            <field name="name">User</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="action_area" model="ir.actions.act_window">
+            <field name="name">Area</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">area.area</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_config" name="Config" parent="menu_monitoring" sequence="12"/>
+        	<menuitem id="menu_partner" name="Partners" parent="menu_config" action="action_partner" sequence="10"/>
+        	<menuitem id="menu_user" name="Users" parent="menu_config" action="action_user_em" sequence="11"/>
+        	<menuitem id="menu_area" name="Area" parent="menu_config" action="action_area" sequence="12"/>
+
+    </data>
+</odoo>
